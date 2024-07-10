@@ -61,7 +61,7 @@ class Localmetric:
                     WHERE
                         r.review_reply IS NULL 
                         AND r.star_rating <= 3 
-                        AND r.create_time >= '{datetime.now() - timedelta(days=30)}'
+                        AND r.create_time >= '{(datetime.now() - timedelta(days=30)).replace(hour=0, minute=0, second=1)}'
                     ORDER BY 
                         r.create_time ASC;
                 """)

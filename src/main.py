@@ -1,5 +1,5 @@
-from AppManager import Manager
-from lib.other.ClickUpAPI import ClickUp
+from managers.AppManager import AppManagers
+from lib.clickUp.ClickUp import ClickUp
 from lib.other.LocalmetricManager import Localmetric
 from credentials.config import Config
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -27,7 +27,11 @@ def getCredentials(config):
 settings = Config()
 creds = getCredentials(settings)
 
-manager = Manager(
+appManagers = AppManagers(
     Localmetric(settings, creds),
     ClickUp(settings),
 )
+
+reviewsManager = appManagers.ReviewsManager
+
+reviewsManager.removeRepliedReviewsTasks()
