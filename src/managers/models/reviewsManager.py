@@ -7,24 +7,24 @@ from managers.models.__baseManager import __BaseManager
 
 class ReviewsManager(__BaseManager):
     def __init__(self, Localmetric: Localmetric, ClickUp: ClickUp) -> None:
-        super().__init__()
+        super().__init__(Localmetric, ClickUp)
         
         self.__NegativeReviews: list[list[datetime | str | int]] = Localmetric.getNegativeReviewsFromOneMonth()
         self.__ClientsLocations: dict[str, str] = Localmetric.getClientsLocations()
 
-        self.__FieldsID: dict[str, str] = ClickUp.Fields.getFieldsInfo(ClickUp.getListsInfo(self.__ClientsFoldersID['Localmetric'])['test *no borrar*'])    
+        self.__FieldsID: dict[str, str] = ClickUp.Fields.getFieldsInfo(ClickUp.Lists.getListsInfo(self._ClientsFoldersID['Localmetric'])['test *no borrar*'])    
         self.__ListsInfo: dict[str, str] = {}
         self.__TasksFields: dict[str, dict[str, str]] = {}
-        for owner in self.__ClientsOwners:
-            self.__ListsInfo.update(ClickUp.Lists.getListsInfo(self.__ClientsFoldersID[owner]))
+        for owner in self._ClientsOwners:
+            self.__ListsInfo.update(ClickUp.Lists.getListsInfo(self._ClientsFoldersID[owner]))
         for list_ in self.__ListsInfo:
-            self.__TasksFields.update(self.__ClickUp.Tasks.getTasksFields(self.__ListsInfo[list_]))
+            self.__TasksFields.update(self._ClickUp.Tasks.getTasksFields(self.__ListsInfo[list_]))
     
     def createNegativeReviewsTasks(self) -> None:
-        _clientsEmails: dict[str, str] = self.__Localmetric.getClientsEmails()
+        _clientsEmails: dict[str, str] = self._Localmetric.getClientsEmails()
         
         for review in self.__NegativeReviews:
-            if self.__ClientsLocations[review[1]] in self.__ClientExceptions or review[5] in self.__TasksFields:
+            if self.__ClientsLocations[review[1]] in self._ClientExceptions or review[5] in self.__TasksFields:
                 continue
 
             email = _clientsEmails.get(review[7], _clientsEmails.get(review[8], ''))
@@ -34,7 +34,7 @@ class ReviewsManager(__BaseManager):
                 'Nombre': [ ('value', review[2]) ], 'Puntuación': [ ('value', str(review[4])) ]
             }
 
-            self.__ClickUp.createOrUploadTaskInList(
+            self._ClickUp.Tasks.createOrUploadTaskInList(
                 f'Reseña negativa - {review[2]}', review[3], {'Miranda'},
                 self.__ListsInfo[self.__ClientsLocations[review[1]]],
                 settings = {
@@ -50,6 +50,6 @@ class ReviewsManager(__BaseManager):
         _reviewsId: set[str] = set(review[5] for review in self.__NegativeReviews)
         for task in self.__TasksFields:
             if task not in _reviewsId:
-                self.__ClickUp.Tasks.deleteTaskOfList(self.__TasksFields[task]['id'])
+                self._ClickUp.Tasks.deleteTaskOfList(self.__TasksFields[task]['id'])
             elif datetime.fromtimestamp(int(self.__TasksFields[task]['Fecha reseña']) / 1000) <= (datetime.now() - timedelta(days=7)):
-                self.__ClickUp.Tasks.updateTask(self.__TasksFields[task]['id'], { 'priority': 1 })
+                self._ClickUp.Tasks.updateTask(self.__TasksFields[task]['id'], { 'priority': 1 })

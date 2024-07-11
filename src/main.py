@@ -27,11 +27,18 @@ def getCredentials(config):
 settings = Config()
 creds = getCredentials(settings)
 
-appManagers = AppManagers(
+appManagers = AppManagers()
+
+reviewsManager = appManagers.ReviewsManager(
+    Localmetric(settings, creds),
+    ClickUp(settings)
+)
+
+fase1Manager = appManagers.Fase1Manager(
     Localmetric(settings, creds),
     ClickUp(settings),
 )
 
-reviewsManager = appManagers.ReviewsManager
-
 reviewsManager.removeRepliedReviewsTasks()
+reviewsManager.createNegativeReviewsTasks()
+fase1Manager.createFase1ClientsLists()

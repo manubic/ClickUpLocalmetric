@@ -5,11 +5,11 @@ from lib.clickUp.api.__base import __Base
 
 class Fields(__Base):
     def __init__(self, config) -> None:
-        super.__init__(config)
+        super().__init__(config)
     
     def getFieldsInfo(self, listID: str) -> dict[str, str]:
         _newHeaders = { 'Content-Type': 'application/json' }
-        _newHeaders.update(self.__headers)
+        _newHeaders.update(self._headers)
         return {
             _field['name']: _field['id']
             for _field in requests.get(
