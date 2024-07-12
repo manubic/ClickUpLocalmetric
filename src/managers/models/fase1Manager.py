@@ -36,7 +36,7 @@ class Fase1Manager(__BaseManager):
     def __createFase1Tasks(self, listId: str):
         for task in self.__Fase1Tasks:
             newTaskId = self._ClickUp.Tasks.createOrUploadTaskInList(
-                task, self.__Fase1Tasks[task].get('description', ''), {'Valentina', 'Javier Agote Lopez'}, listId,
+                task, self.__Fase1Tasks[task].get('description', ''), {'Valentina Leandro', 'Javier Agote Lopez'}, listId,
                 settings = {
                     'tags': ['fase 1'], 'priority': 3,
                     'due_date': int(datetime.now().timestamp()*1000) + 345600000, 'due_date_time': True,

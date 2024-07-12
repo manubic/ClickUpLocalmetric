@@ -5,6 +5,7 @@ beautifulsoup4==4.12.3
 bs4==0.0.2
 cachetools==5.3.3
 certifi==2024.6.2
+chardet==5.2.0
 charset-normalizer==3.3.2
 ci-info==0.3.0
 click==8.1.7
@@ -40,6 +41,7 @@ openai==1.35.7
 packaging==24.1
 pandas==2.2.2
 pathlib==1.0.1
+pillow==10.4.0
 pluggy==1.5.0
 proto-plus==1.24.0
 protobuf==5.27.2
@@ -59,6 +61,7 @@ python-magic==0.4.27
 pytz==2024.1
 pyxnat==1.6.2
 rdflib==6.3.2
+reportlab==4.2.2
 requests==2.32.3
 requests-oauthlib==2.0.0
 rsa==4.9
