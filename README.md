@@ -1,20 +1,33 @@
-# Localmetric Content Automation Tool
+# Localmetric Task Automation Tool
 
-Este repositorio contiene la herramienta desarrollada para Localmetric que facilita la gestión y publicación de contenidos en Google Maps de manera rapida y optimizada. La herramienta realiza dos funciones principales:
+Este repositorio contiene la herramienta desarrollada para Localmetric, diseñada para automatizar la creación y gestión de tareas en ClickUp. La herramienta abarca dos funcionalidades principales:
 
-1. **Generación de publicaciones con ChatGPT y almacenamiento en Google Sheets.**
-2. **Publicación automática de contenidos en Google Maps según la fecha programada.**
+1. **Gestión de Tareas para Reseñas Negativas.**
+2. **Fase 1: Creación de Tareas para Nuevos Clientes con Subtareas.**
 
 ## Funcionalidades
 
-### 1. Generación de Publicaciones
+### 1. Gestión de Tareas para Reseñas Negativas
 
-- **Descripción:** Utiliza ChatGPT para crear contenido de publicaciones.
-- **Integración:** Almacena el contenido generado en una hoja de cálculo de Google Sheets.
-- **Tecnologías utilizadas:** OpenAI GPT-4o, Google Sheets API.
+- **Descripción:** Crea tareas para reseñas negativas sin responder, con una fecha límite de tres días. Si la tarea se retrasa una semana, se marca como prioridad urgente. Además, si la reseña tiene más de 200 caracteres, se marca como prioridad alta; de lo contrario, se marca como normal.
+- **Integración:** Utiliza la API de ClickUp para gestionar las tareas.
+- **Reglas de Prioridad:**
+  - **Normal:** Tareas sin características especiales.
+  - **Alta:** Reseñas con más de 200 caracteres.
+  - **Urgente:** Tareas retrasadas una semana.
 
-### 2. Publicación Automática en Google Maps
+### 2. Fase 1: Creación de Tareas para Nuevos Clientes
 
-- **Descripción:** Revisa la hoja de cálculo para verificar las publicaciones programadas para el día de ejecución y las publica automáticamente en Google Maps.
-- **Integración:** Accede a Google Maps mediante la API correspondiente para realizar la publicación.
-- **Tecnologías utilizadas:** Google Maps API, Google Sheets API.
+- **Descripción:** Crea diversas tareas con subtareas en la carpeta del cliente, con una fecha límite de cinco días.
+- **Integración:** Utiliza la API de ClickUp para la creación y organización de tareas.
+- **Proceso:**
+  - Crea una carpeta para el nuevo cliente.
+  - Añade tareas principales con sus respectivas subtareas.
+
+## Instalación
+
+### Requisitos Previos
+
+- **Cuenta de ClickUp y acceso a ClickUp API.**
+- **Token de API de ClickUp.**
+- **Python 3.8 o superior.**
