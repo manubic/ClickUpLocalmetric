@@ -1,6 +1,6 @@
 # Localmetric Content Automation Tool
 
-Este repositorio contiene la herramienta desarrollada para Localmetric que facilita la gestión y publicación de contenidos en Google Maps. La herramienta realiza dos funciones principales:
+Este repositorio contiene la herramienta desarrollada para Localmetric que facilita la gestión y publicación de contenidos en Google Maps de manera rapida y optimizada. La herramienta realiza dos funciones principales:
 
 1. **Generación de publicaciones con ChatGPT y almacenamiento en Google Sheets.**
 2. **Publicación automática de contenidos en Google Maps según la fecha programada.**
@@ -11,7 +11,7 @@ Este repositorio contiene la herramienta desarrollada para Localmetric que facil
 
 - **Descripción:** Utiliza ChatGPT para crear contenido de publicaciones.
 - **Integración:** Almacena el contenido generado en una hoja de cálculo de Google Sheets.
-- **Tecnologías utilizadas:** OpenAI GPT-3.5, Google Sheets API.
+- **Tecnologías utilizadas:** OpenAI GPT-4o, Google Sheets API.
 
 ### 2. Publicación Automática en Google Maps
 
