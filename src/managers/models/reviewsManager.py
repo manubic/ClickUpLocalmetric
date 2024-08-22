@@ -38,8 +38,8 @@ class ReviewsManager(__BaseManager):
                 f'Reseña negativa - {review[2]}', review[3], {'Miranda'},
                 self.__ListsInfo[self.__ClientsLocations[review[1]]],
                 settings = {
-                    'tags': ['reseña'], 'priority': 3 if len(review[3]) < 200 else 2,
-                    'due_date': int((datetime.now().replace(hour=12, minute=0)).timestamp()*1000) + 259200000, 'due_date_time': True,
+                    'tags': ['reseña'], 'priority': 3 if len(review[3]) < 200 else 2,                   # 7 days
+                    'due_date': int((datetime.now().replace(hour=12, minute=0)).timestamp() * 1000) + (7 * 4 * 60 * 60 * 1000), 'due_date_time': True,
                     "custom_fields": [
                         dict(fieldValues[field] + [ ('id', self.__FieldsID[field]) ])
                         for field in self.__FieldsID
