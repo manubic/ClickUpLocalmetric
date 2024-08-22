@@ -1,33 +1,33 @@
 # Localmetric Task Automation Tool
 
-Este repositorio contiene la herramienta desarrollada para Localmetric, diseñada para automatizar la creación y gestión de tareas en ClickUp. La herramienta abarca dos funcionalidades principales:
+This repository contains the tool developed for Localmetric, designed to automate the creation and management of tasks in ClickUp. The tool covers two main functionalities:
 
-1. **Gestión de Tareas para Reseñas Negativas.**
-2. **Fase 1: Creación de Tareas para Nuevos Clientes con Subtareas.**
+1. **Management of Tasks for Negative Reviews.**
+2. **Phase 1: Creation of Tasks for New Clients with Subtasks.**
 
-## Funcionalidades
+## Features
 
-### 1. Gestión de Tareas para Reseñas Negativas
+### 1. Management of Tasks for Negative Reviews
 
-- **Descripción:** Crea tareas para reseñas negativas sin responder, con una fecha límite de tres días. Si la tarea se retrasa una semana, se marca como prioridad urgente. Además, si la reseña tiene más de 200 caracteres, se marca como prioridad alta; de lo contrario, se marca como normal.
-- **Integración:** Utiliza la API de ClickUp para gestionar las tareas.
-- **Reglas de Prioridad:**
-  - **Normal:** Tareas sin características especiales.
-  - **Alta:** Reseñas con más de 200 caracteres.
-  - **Urgente:** Tareas retrasadas una semana.
+- **Description:** Creates tasks for unanswered negative reviews with a deadline of seven days. If the task is delayed by a week, it is marked as an urgent priority. Additionally, if the review has more than 200 characters, it is marked as a high priority; otherwise, it is marked as normal.
+- **Integration:** Uses the ClickUp API to manage tasks.
+- **Priority Rules:**
+  - **Normal:** Tasks without special characteristics.
+  - **High:** Reviews with more than 200 characters.
+  - **Urgent:** Tasks delayed by a week.
 
-### 2. Fase 1: Creación de Tareas para Nuevos Clientes
+### 2. Phase 1: Creation of Tasks for New Clients
 
-- **Descripción:** Crea diversas tareas con subtareas en la carpeta del cliente, con una fecha límite de cinco días.
-- **Integración:** Utiliza la API de ClickUp para la creación y organización de tareas.
-- **Proceso:**
-  - Crea una carpeta para el nuevo cliente.
-  - Añade tareas principales con sus respectivas subtareas.
+- **Description:** Creates various tasks with subtasks in the client's folder, with a deadline of five days.
+- **Integration:** Uses the ClickUp API for task creation and organization.
+- **Process:**
+  - Creates a folder for the new client.
+  - Adds main tasks with their respective subtasks.
 
-## Instalación
+## Installation
 
-### Requisitos Previos
+### Prerequisites
 
-- **Cuenta de ClickUp y acceso a ClickUp API.**
-- **Token de API de ClickUp.**
+- **ClickUp account and access to ClickUp API.**
+- **ClickUp API token.**
 - **Python 3.12.**
