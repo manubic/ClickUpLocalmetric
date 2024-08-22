@@ -30,4 +30,4 @@ Este repositorio contiene la herramienta desarrollada para Localmetric, diseñad
 
 - **Cuenta de ClickUp y acceso a ClickUp API.**
 - **Token de API de ClickUp.**
-- **Python 3.8 o superior.**
+- **Python 3.12.**
